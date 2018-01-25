@@ -1,0 +1,20 @@
+﻿{
+  "author": "Chad Ramos <chad@pioneercode.com>",
+  "classifications": [ "Console", "Boilerplate", "Dependency Injection", "Logging", "Configuration" ],
+  "name": "Pioneer Code: Console Application with dependency injection, logging & configuration.",
+  "tags": {
+    "language": "C#"
+  },
+  "identity": "Pioneer.Console.Boilerplate",
+  "shortName": "pioneer-console",
+  "sourceName": "Pioneer.Console.Boilerplate",
+  "symbols": {
+    "title": {
+      "type": "parameter",
+      "datatype": "string",
+      "replaces": "CONSOLE-TITLE",
+      "defaultValue": "Pioneer Console Boilerplate",
+      "description": "Title that shows up in header of console."
+    }
+  }
+}
