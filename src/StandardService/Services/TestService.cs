@@ -6,7 +6,7 @@ namespace StandardService.Services
 {
     public interface ITestService
     {
-        void Run();
+        void PrintLines();
     }
 
     public class TestService : ITestService
@@ -23,7 +23,7 @@ namespace StandardService.Services
             _myCount = 0;
         }
 
-        public void Run()
+        public void PrintLines()
         {
             _logger.LogWarning($"If this is injected as transient, count should always been 1.  Otherwise, it should increment whether it's Singleton or Scoped.");
             _logger.LogInformation($"My count is now: {++_myCount}");

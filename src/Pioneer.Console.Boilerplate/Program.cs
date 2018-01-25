@@ -19,19 +19,9 @@ namespace Pioneer.Console.Boilerplate
 
             // create service provider
             var serviceProvider = serviceCollection.BuildServiceProvider();
-            while (true)
-            {
-                ConsoleKeyInfo result = System.Console.ReadKey();
-                if ((result.KeyChar == 'Y') || (result.KeyChar == 'y'))
-                {
-                    serviceProvider.GetService<App>().Run();
-                }
-                else if ((result.KeyChar == 'N') || (result.KeyChar == 'n'))
-                {
-                    System.Console.WriteLine("I wont do anything");
-                    break;
-                }
-            }
+
+            //Start watching file system
+            serviceProvider.GetService<FileWatcher>().StartWatching();
         }
 
         private static void ConfigureServices(IServiceCollection serviceCollection)
@@ -41,7 +31,7 @@ namespace Pioneer.Console.Boilerplate
                 .AddConsole()
                 .AddDebug());
             serviceCollection.AddLogging();
-            serviceCollection.AddMyServiceDependencies();
+            serviceCollection = serviceCollection.AddMyServiceDependencies();
             // build configuration
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -51,9 +41,10 @@ namespace Pioneer.Console.Boilerplate
             serviceCollection.AddOptions();
             serviceCollection.Configure<AppSettings>(configuration.GetSection("Configuration"));
             ConfigureConsole(configuration);
-      
-            // add app
-            serviceCollection.AddTransient<App>();
+
+            // add FileWatcher and FileProcessor
+            serviceCollection.AddTransient<FileWatcher>();
+            serviceCollection.AddTransient<FileProcessor>();
         }
 
         private static void ConfigureConsole(IConfigurationRoot configuration)
