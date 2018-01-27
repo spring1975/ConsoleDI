@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading;
 using Microsoft.Extensions.DependencyInjection;
+using StandardService.Services;
 
 namespace Pioneer.Console.Boilerplate
 {
@@ -18,7 +20,9 @@ namespace Pioneer.Console.Boilerplate
 
         public void StartWatching()
         {
-            System.Console.WriteLine("Press (Y) to call service, (N) to exit.");
+            var prompt = "Press (Y) to call service, (A) to add new City, or (N) to exit.";
+            System.Console.WriteLine(prompt);
+
             while (true)
             {
                 var result = System.Console.ReadKey();
@@ -27,11 +31,26 @@ namespace Pioneer.Console.Boilerplate
                     //_fileProcessor.ProcessFile();
                     _serviceProvider.GetService<FileProcessor>().ProcessFile();
                 }
-                else if (result.KeyChar == 'N' || result.KeyChar == 'n')
+                else if (result.KeyChar == 'A' || result.KeyChar == 'a')
+                {
+                    System.Console.Clear();
+                    System.Console.WriteLine("Please enter new City name: ");
+                    var name = System.Console.ReadLine();
+                    var service = _serviceProvider.GetService<ICityService>();
+                    service.AddCity(name);
+                    System.Console.WriteLine($"City {name} Added");
+
+                    //TODO: there's a better way to do this instead of locking up the main thread.
+                    Thread.Sleep(500);
+                }
+                else if (result.KeyChar == 'X' || result.KeyChar == 'x')
                 {
                     //exit
                     break;
                 }
+
+                System.Console.Clear();
+                System.Console.WriteLine(prompt);
             }
         }
     }
