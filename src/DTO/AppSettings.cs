@@ -1,4 +1,4 @@
-﻿namespace StandardService.Models
+﻿namespace LogicService.Models
 {
     public class AppSettings
     {

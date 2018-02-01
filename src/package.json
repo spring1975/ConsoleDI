@@ -1,12 +1,12 @@
 {
-  "author": "Chad Ramos <jedi_obi_wan_@hotmail.com>",
-  "description": "Pioneer Console Boilerplate",
+  "author": "Roger Spring <roger.spring@gmail.com>",
+  "description": "Web App Console App And Windows Service",
   "version": "1.0.0",
-  "name": "pioneer-console-boilerplate",
+  "name": "web-console-windows-service",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/PioneerCode/pioneer-console-boilerplate"
+    "url": "https://github.com/spring1975/ConsoleDI.git"
   },
   "devDependencies": {
     "del": "2.2.2",
