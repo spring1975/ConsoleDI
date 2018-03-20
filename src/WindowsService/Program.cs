@@ -1,17 +1,26 @@
-﻿using System.ServiceProcess;
+﻿using System.Configuration;
+using System.ServiceProcess;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using LogicService;
 using System.IO;
 using LogicService.Models;
+using ConfigurationBuilder = Microsoft.Extensions.Configuration.ConfigurationBuilder;
 
 //https://docs.microsoft.com/en-us/dotnet/framework/windows-services/walkthrough-creating-a-windows-service-application-in-the-component-designer
 
 namespace WindowsService
 {
-    static class Program
+    public class Program
     {
+        private static IConfiguration Configuration { get; set; }
+
+        public Program(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -40,7 +49,7 @@ namespace WindowsService
                 //.AddDebug()
                 );
             serviceCollection.AddLogging();
-            serviceCollection = serviceCollection.AddMyServiceDependencies();
+            serviceCollection = serviceCollection.AddMyServiceDependencies(Configuration);
             // build configuration
 
             //The following needed Microsoft.Extensions.Options.ConfigurationExtensions to work

@@ -1,5 +1,11 @@
 {
-  "Configuration": {
-    "ConsoleTitle": "Yabadabadoo"
-  }
+    "ConnectionStrings": {
+        
+        "DefaultConnection":
+            "Data Source=localhost\\sqlexpress;Initial Catalog=DevWidgets;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True"
+
+    },
+    "Configuration": {
+        "ConsoleTitle": "Yabadabadoo"
+    }
 }

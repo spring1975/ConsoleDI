@@ -9,11 +9,19 @@ namespace ConsoleApp
 {
     public class Program
     {
+        private static IConfiguration Configuration { get; set; }
+
+        public Program(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+
         public static void Main(string[] args)
         {
             // create service collection
             var serviceCollection = new ServiceCollection();
-            ConfigureServices(serviceCollection);
+            ConfigureServices(serviceCollection, Configuration);
 
             // create service provider
             var serviceProvider = serviceCollection.BuildServiceProvider();
@@ -22,23 +30,23 @@ namespace ConsoleApp
             serviceProvider.GetService<FileWatcher>().StartWatching();
         }
 
-        private static void ConfigureServices(IServiceCollection serviceCollection)
+        private static void ConfigureServices(IServiceCollection serviceCollection, IConfiguration configuration)
         {
             // add logging
             serviceCollection.AddSingleton(new LoggerFactory()
                 .AddConsole()
                 .AddDebug());
             serviceCollection.AddLogging();
-            serviceCollection = serviceCollection.AddMyServiceDependencies();
+            serviceCollection = serviceCollection.AddMyServiceDependencies(configuration);
             // build configuration
-            var configuration = new ConfigurationBuilder()
+            var configurationBuilder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("app-settings.json", false)
                 .Build();
 
             serviceCollection.AddOptions();
-            serviceCollection.Configure<AppSettings>(configuration.GetSection("Configuration"));
-            ConfigureConsole(configuration);
+            serviceCollection.Configure<AppSettings>(configurationBuilder.GetSection("Configuration"));
+            ConfigureConsole(configurationBuilder);
 
             // add FileWatcher and FileProcessor
             serviceCollection.AddTransient<FileWatcher>();
