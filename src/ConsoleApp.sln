@@ -24,11 +24,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService.Tests", "Win
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicService.Tests", "LogicService.Tests\LogicService.Tests.csproj", "{AA4A2F4F-C481-46B2-8630-2CD8D76A18BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFramework", "DataFramework\DataFramework.csproj", "{BD594732-2D37-4DEA-A422-5B6772EBAB62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFramework471", "DataFramework\DataFramework471.csproj", "{BD594732-2D37-4DEA-A422-5B6772EBAB62}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{5CDF3308-5035-4865-A08E-BD6B8A1CB054}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFLogicService", "EFLogicService\EFLogicService.csproj", "{6F706406-93BF-4D89-B6AB-DB78874B4174}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicServiceFramework471", "EFLogicService\LogicServiceFramework471.csproj", "{6F706406-93BF-4D89-B6AB-DB78874B4174}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

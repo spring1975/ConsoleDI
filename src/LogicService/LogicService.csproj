@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataFramework\DataFramework.csproj" />
+    <ProjectReference Include="..\DataFramework\DataFramework471.csproj" />
     <ProjectReference Include="..\DataStandard\DataStandard.csproj" />
     <ProjectReference Include="..\DTO\DTO.csproj" />
   </ItemGroup>

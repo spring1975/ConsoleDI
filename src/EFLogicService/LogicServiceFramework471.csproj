@@ -8,9 +8,10 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EFLogicService</RootNamespace>
-    <AssemblyName>EFLogicService</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AssemblyName>EFLogicService471</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,9 +71,9 @@
     <Compile Include="Services\WidgetService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataFramework\DataFramework.csproj">
+    <ProjectReference Include="..\DataFramework\DataFramework471.csproj">
       <Project>{bd594732-2d37-4dea-a422-5b6772ebab62}</Project>
-      <Name>DataFramework</Name>
+      <Name>DataFramework471</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{b88f33d3-04d9-4ef9-af96-221fb465439e}</Project>
